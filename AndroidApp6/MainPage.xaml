@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AndroidApp6.MainPage">
+
+    <StackLayout>
+        <Entry  Placeholder="Введите задачу" x:Name="TaskName"/>
+        <Entry  Placeholder="Введите текст задачи" x:Name="TaskText"/>
+        <Entry  Placeholder="Введите дату в формате 04.07.2004.10.55.40" x:Name="TaskDate"/>
+        <Button Text="Добавить" x:Name="AddButton" Clicked="Addbt"/>
+        <Picker Title="" x:Name="TaskPicker" />
+        <Button Text="Удалить" x:Name="DeleteButton" Clicked="Deletebt"/>
+        <ListView x:Name="tasklist"  ItemsSource="{Binding task}" >
+            <ListView.ItemTemplate >
+                <DataTemplate x:Name="dataTemplate">
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="550"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Row="0" Grid.Column="0">
+                                <Label Text="{Binding name}" x:Name="{Binding id}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="0" Grid.Column="1">
+                                <Label Text="{Binding description}" x:Name="{Binding id}"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
